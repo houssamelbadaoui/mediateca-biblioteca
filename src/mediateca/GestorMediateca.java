@@ -161,4 +161,40 @@ public class GestorMediateca {
         System.out.println("Item prestado correctamente");
         System.out.println("Debe devolverse en " + item.getDiasMaximoPrestamo());
     }
+
+    // method to return an item
+    public static void devolverItem(){
+        System.out.println("Introduce el ID del item a devolver: ");
+        String id = scanner.nextLine();
+
+        // search for that item using ID
+        ItemBiblioteca item = buscarItemPorId(id);
+
+        // if not found
+        if(item == null) {
+            System.out.println("Item no encontrado");
+            return;
+        }
+        // check if item is already prestado
+        if(!item.isEstadoPrestado()){
+            System.out.println("Este item no estaba prestado.");
+            return;
+        }
+
+        // ask for dias de retraso
+        System.out.println("Dias de retraso: ");
+        int diasRetraso = scanner.nextInt();
+        scanner.nextLine();
+
+        double multa = item.calcularMulta(diasRetraso);
+        item.devolver();
+
+        // if multa > 0 we should inform client how much to pay
+        if(multa > 0){
+            System.out.println("El item fue devuelvo con retraso");
+            System.out.println("Multa a pagar: " + multa + "$");
+        }else {
+            System.out.println("Item devuelto a tiempo");
+        }
+    }
 }
