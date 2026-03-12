@@ -36,10 +36,10 @@ public class GestorMediateca {
                 case 3:
                     modificarTitulo();
                     break;
-                /*case 4:
+                case 4:
                     prestarItem();
                     break;
-                case 5:
+                /*case 5:
                     devolverItem();
                     break;*/
             }
@@ -136,5 +136,29 @@ public class GestorMediateca {
         item.setTitulo(nuevoTitulo);
 
         System.out.println("Titulo actualizado correctamente.");
+    }
+
+    // method to prestar an item from the list
+    public static void prestarItem() {
+        System.out.println("Introduce el ID del item a prestar: ");
+        String id = scanner.nextLine();
+
+        // search for that item using ID
+        ItemBiblioteca item = buscarItemPorId(id);
+
+        // if not found
+        if(item == null) {
+            System.out.println("Item no encontrado");
+            return;
+        }
+        // check if item is already prestado
+        if(item.isEstadoPrestado()){
+            System.out.println("Este item ya esta prestado.");
+            return;
+        }
+        // si no lo prestamos
+        item.prestar();
+        System.out.println("Item prestado correctamente");
+        System.out.println("Debe devolverse en " + item.getDiasMaximoPrestamo());
     }
 }
