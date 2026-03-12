@@ -39,9 +39,9 @@ public class GestorMediateca {
                 case 4:
                     prestarItem();
                     break;
-                /*case 5:
+                case 5:
                     devolverItem();
-                    break;*/
+                    break;
             }
         }while (opcion != 6);
     }
@@ -159,7 +159,7 @@ public class GestorMediateca {
         // si no lo prestamos
         item.prestar();
         System.out.println("Item prestado correctamente");
-        System.out.println("Debe devolverse en " + item.getDiasMaximoPrestamo());
+        System.out.println("Debe devolverse en " + item.getDiasMaximoPrestamo() + " Dias");
     }
 
     // method to return an item
