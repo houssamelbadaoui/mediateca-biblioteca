@@ -33,10 +33,10 @@ public class GestorMediateca {
                 case 2:
                     anadirItem();
                     break;
-                /*case 3:
+                case 3:
                     modificarTitulo();
                     break;
-                case 4:
+                /*case 4:
                     prestarItem();
                     break;
                 case 5:
@@ -104,5 +104,37 @@ public class GestorMediateca {
                 System.out.println("Tipo invalido");
         }
         System.out.println("Item añadido al catalogo.");
+    }
+
+    // method that find an item inside our list using ID
+    public static ItemBiblioteca buscarItemPorId(String id) {
+
+        for(ItemBiblioteca item : catalogo) {
+            if(item.getId().equals(id)){
+                return item;
+            }
+        }
+        return  null;
+    }
+
+    // method that will help us modificar el titulo de un item en la lista
+    public static  void modificarTitulo() {
+        System.out.println("Introduce el ID del item: ");
+        String id = scanner.nextLine();
+
+        // search for that item using ID
+        ItemBiblioteca item = buscarItemPorId(id);
+
+        // if not found
+        if(item == null) {
+            System.out.println("Item no encontrado");
+            return;
+        }
+        System.out.println("Nuevo titulo: ");
+        String nuevoTitulo = scanner.nextLine();
+
+        item.setTitulo(nuevoTitulo);
+
+        System.out.println("Titulo actualizado correctamente.");
     }
 }
