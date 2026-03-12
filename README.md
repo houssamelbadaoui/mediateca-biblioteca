@@ -12,6 +12,7 @@ the application allow the user to:
 ## Class structure
 Abstract class
 - `ItemBiblioteca`
+
 Subclases:
 - `Libro`
 - `Revista`
