@@ -8,7 +8,7 @@ public abstract class ItemBiblioteca {
     private boolean estadoPrestado;
 
     // constructor
-    public ItemBiblioteca(String id, String titulo, boolean estadoPrestado) {
+    public ItemBiblioteca(String id, String titulo) {
         this.id = id;
         this.titulo = titulo;
         this.estadoPrestado = false;

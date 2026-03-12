@@ -5,8 +5,8 @@ public class Libro extends ItemBiblioteca{
     private String autor;
 
     // constructor
-    public Libro(String id, String titulo,boolean estadoPrestamo, String autor){
-        super(id, titulo, estadoPrestamo);
+    public Libro(String id, String titulo, String autor){
+        super(id, titulo);
         this.autor = autor;
     }
 

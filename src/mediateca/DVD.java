@@ -4,8 +4,8 @@ public class DVD extends ItemBiblioteca{
 
     private String director;
 
-    public DVD(String id, String titulo, boolean estadoPrestamo, String director) {
-        super(id, titulo, estadoPrestamo);
+    public DVD(String id, String titulo, String director) {
+        super(id, titulo);
         this.director = director;
     }
 

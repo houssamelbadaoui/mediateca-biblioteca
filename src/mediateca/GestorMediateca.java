@@ -11,9 +11,6 @@ public class GestorMediateca {
 
     public static void main(String[] args) {
 
-        catalogo.add(new Libro("1", "El Quijote", false, "Cervantes"));
-        catalogo.add(new DVD("2", "MAtrix", false, "wachowski"));
-        catalogo.add(new Revista("3", "National Geographic", false, 120));
         int opcion;
 
         do{
@@ -33,10 +30,10 @@ public class GestorMediateca {
                 case 1:
                     mostrarCatalogo();
                     break;
-                /*case 2:
-                    añadirItem();
+                case 2:
+                    anadirItem();
                     break;
-                case 3:
+                /*case 3:
                     modificarTitulo();
                     break;
                 case 4:
@@ -61,5 +58,51 @@ public class GestorMediateca {
     }
 
     // Method to add items
+    public static void anadirItem() {
+        System.out.println("Tipo de material:");
+        System.out.println("1. Libro");
+        System.out.println("2. Revista");
+        System.out.println("3. DVD");
 
+        // to choose one option
+        int tipo = scanner.nextInt();
+        scanner.nextLine();
+
+        // the ID
+        System.out.println("ID: ");
+        String id = scanner.nextLine();
+
+        // titulo
+        System.out.println("Titulo: ");
+        String titulo = scanner.nextLine();
+
+        switch (tipo) {
+            case 1:
+                System.out.println("Autor: ");
+                String autor = scanner.nextLine();
+
+                Libro libro = new Libro(id, titulo, autor);
+                catalogo.add(libro);
+                break;
+            case 2:
+                System.out.println("Numero de edicion: ");
+                int edicion = scanner.nextInt();
+                scanner.nextLine();
+
+                Revista revista = new Revista(id, titulo, edicion);
+                catalogo.add(revista);
+                break;
+
+            case 3:
+                System.out.println("Director: ");
+                String director = scanner.nextLine();
+
+                DVD dvd = new DVD(id, titulo, director);
+                catalogo.add(dvd);
+                break;
+            default:
+                System.out.println("Tipo invalido");
+        }
+        System.out.println("Item añadido al catalogo.");
+    }
 }

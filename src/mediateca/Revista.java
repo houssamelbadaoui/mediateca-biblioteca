@@ -5,8 +5,8 @@ public class Revista extends ItemBiblioteca{
     private int numeroEdicion;
 
     // constructor
-    public Revista(String id, String titulo, boolean estadoPrestamo, int numeroEdicion) {
-        super(id, titulo, estadoPrestamo);
+    public Revista(String id, String titulo,  int numeroEdicion) {
+        super(id, titulo);
         this.numeroEdicion = numeroEdicion;
     }
 
