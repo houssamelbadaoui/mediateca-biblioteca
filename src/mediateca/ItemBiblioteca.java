@@ -45,7 +45,7 @@ public abstract class ItemBiblioteca {
     @Override
     public String toString(){
         return "ID: " + id +
-                "| Titulo: " + titulo +
-                "| Estado: " + (estadoPrestado ? "Prestado" : "Disponible");
+                " | Titulo: " + titulo +
+                " | Estado: " + (estadoPrestado ? "Prestado" : "Disponible");
     }
 }
